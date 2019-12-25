@@ -3,17 +3,34 @@ import logo from './logo.svg';
 import react from './image/react.PNG'
 import './App.css';
 
-function App() {
+function sabTest() {
+  let testingName = "nested Function"
   return (
-    <React.Fragment>
-    <h3>ReactJS:</h3>
-    <img src={react} width="120" height="120" alt="React Logo"/>
-    <p> React is a JavaScript library for creating User Interfaces, open sourced to the world  by Facebook and  Instagram team in 2013.<br/>
-    React’s main goal is to make development of UI components easy and modular.
-    It is intended to ease the process of building<br/> large applications using
-    data that changes over time.</p>
-  </React.Fragment>
-  );
+    <h1>{testingName}</h1>
+  )
 }
+
+class App extends React.Component {
+  render() {
+    let count = 5;
+    let name = {
+      firstName: 'Sabarinathan',
+      lastName: 'Ayyappan'
+    }
+    let styles = {
+      color: 'blue',
+      backgroundColor: 'gray'
+    }
+    return (<React.Fragment>
+      <h1>{count}</h1>
+      <h2>{count * count}</h2>
+      <h3 style={styles}>{name.firstName} 2 {name.lastName}"</h3>
+      {/* <h4 Color = 'blue'>blue color</h4> */}
+      {/* <h5 backgroundColor = {styles.backgroundColor}>background color</h5> */}
+      <h4>{sabTest()}</h4>
+    </React.Fragment>)
+  }
+}
+
 
 export default App;
