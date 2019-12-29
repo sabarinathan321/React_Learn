@@ -2,43 +2,41 @@ import React from 'react';
 import logo from './logo.svg';
 import react from './image/react.PNG'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import ButtonReact from '@material-ui/core/Button';
+import Label from 'react-bootstrap/FormLabel';
+import Typography from '@material-ui/core/Typography';
 import './App.css';
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      price: 0,
+      quantity: 0,
+      time: 0,
+    }
+  }
+  onRender = () => {
+    this.setState({price:this.state.price+5})
+    if(this.state.price===5) {
+      this.setState({quantity:100})
+    }
+  }
+  start = () => {
+    this.setState({time:this.state.time+1})
+  }
+  handleClick = () => {
+    this.interval = setInterval(this.start , 1000);
+  }
   render() {
-    let x = 30, y = 20, element = null;
-    let jsonArray = [
-      { firstName: 'sab', age: 21 },
-      { firstName: 'sound', age: 22 }
-    ]
-    let rowArray = [];
-    for (var i = 0; i < jsonArray.length; i++) {
-      var row = (
-        <tr>
-          <td>{jsonArray[i].firstName}</td>
-          <td>{jsonArray[i].age}</td>
-        </tr>
-      )
-      rowArray.push(row);
-    }
-    if (x > y) {
-      element = <h1>x is greater</h1>
-    }
-    else {
-      element = <h1>y is greater</h1>
-    }
     return (<React.Fragment>
-      {element}
-      <table style={{ width: '60%' }} className='table'>
-        <thead className="thead-light">
-          <tr>
-            <th>Name</th>
-            <th>Age</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rowArray}
-        </tbody>
-      </table>
+      <Label>Price</Label><br></br>
+      <Label>{this.state.price}</Label><br></br>
+      <Label>quantity</Label>
+      <Label>{this.state.quantity}</Label>
+      <ButtonReact variant='secondary' onClick = {this.onRender}> update </ButtonReact><br></br>
+    <Label>Time updating {this.state.time}</Label><br></br>
+      <ButtonReact variant ='warining' onClick = {this.handleClick} > Time update</ButtonReact>
     </React.Fragment>
 
     )
