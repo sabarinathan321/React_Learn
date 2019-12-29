@@ -2,6 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import react from './image/react.PNG'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import ButtonReact from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 import './App.css';
 class App extends React.Component {
   render() {
@@ -39,6 +42,11 @@ class App extends React.Component {
           {rowArray}
         </tbody>
       </table>
+      <button class="buttonStyle">Table Class Style</button>
+      <button className="btn btn-success">Table bootstrap</button>
+      <Button variant="warning">React bootstrap </Button>
+      <ButtonReact variant="outline-success">Material UI</ButtonReact>
+      <Typography variant="h4" gutterBottom>Welcome to React gutterBottom</Typography>
     </React.Fragment>
 
     )
