@@ -7,6 +7,7 @@ import ButtonReact from '@material-ui/core/Button';
 import Label from 'react-bootstrap/FormLabel';
 import Typography from '@material-ui/core/Typography';
 import './App.css';
+import Parent_Props from './Parent_props';
 class App extends React.Component {
   constructor() {
     super();
@@ -37,6 +38,7 @@ class App extends React.Component {
       <ButtonReact variant='secondary' onClick = {this.onRender}> update </ButtonReact><br></br>
     <Label>Time updating {this.state.time}</Label><br></br>
       <ButtonReact variant ='warining' onClick = {this.handleClick} > Time update</ButtonReact>
+     <br/> <Parent_Props/>
     </React.Fragment>
 
     )
