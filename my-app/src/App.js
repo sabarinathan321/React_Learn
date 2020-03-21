@@ -15,6 +15,7 @@ class App extends React.Component {
       price: 0,
       quantity: 0,
       time: 0,
+      Time_button: 'Start Time'
     }
   }
   onRender = () => {
@@ -27,7 +28,13 @@ class App extends React.Component {
     this.setState({time:this.state.time+1})
   }
   handleClick = () => {
-    this.interval = setInterval(this.start , 1000);
+    if(this.state.Time_button === 'Start Time'){
+      this.interval = setInterval(this.start , 1000);
+      this.setState({Time_button:'Stop Time'})
+    } else {
+      clearInterval(this.interval);
+      this.setState({Time_button:'Start Time'})
+    }
   }
   render() {
     return (<React.Fragment>
@@ -37,8 +44,8 @@ class App extends React.Component {
       <Label>{this.state.quantity}</Label>
       <ButtonReact variant='secondary' onClick = {this.onRender}> update </ButtonReact><br></br>
     <Label>Time updating {this.state.time}</Label><br></br>
-      <ButtonReact variant ='warining' onClick = {this.handleClick} > Time update</ButtonReact>
-     <br/> <Parent_Props/>
+    <ButtonReact variant ='warining' onClick = {this.handleClick} > {this.state.Time_button}</ButtonReact>
+     <br/> <Parent_Props time = {this.state.time}/>
     </React.Fragment>
 
     )
